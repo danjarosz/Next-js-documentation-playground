@@ -20,6 +20,16 @@ export const getStaticProps = async ({ params }) => {
   );
   const todo = await res.json();
 
+  // not needed if fallback is false (it is by default)
+  if (!todo) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
   return {
     props: {
       todo,
