@@ -1,8 +1,21 @@
 import Link from "next/link";
 
-export const getServerSideProps = async () => {
-  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-  const posts = await res.json();
+export const getServerSideProps = async (context) => {
+  const {
+    params,
+    req,
+    res,
+    query,
+    preview,
+    previewData,
+    resolvedUrl,
+    locale,
+    locales,
+    defaultLocale,
+  } = context;
+  console.log(context);
+  const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+  const posts = await response.json();
 
   return {
     props: {
