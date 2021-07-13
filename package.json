@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "customDev": "node server.js",
+    "customStart": "NODE_ENV=production node server.js"
   },
   "dependencies": {
     "fuse.js": "^6.4.6",
